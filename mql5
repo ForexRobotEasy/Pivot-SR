@@ -1,0 +1,90 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                             Pivot SR             |
+//|                                   Developed by Forex Robot Easy Team|
+//|                                            forexroboteasy.com   |
+//+------------------------------------------------------------------+
+
+// Define constants for take profit and stop loss levels
+#define TP_LEVEL 1.5
+#define SL_LEVEL 1.0
+
+//+------------------------------------------------------------------+
+//|                        Custom Indicator                           |
+//+------------------------------------------------------------------+
+// Define custom indicator for identifying pivot, support, and resistance levels
+int CustomIndicator(const int timeframe)
+{
+    // Add code to calculate pivot, support, and resistance levels based on the selected timeframe
+    // Return the calculated levels
+}
+
+//+------------------------------------------------------------------+
+//|                      Overlay on Chart                             |
+//+------------------------------------------------------------------+
+// void OverlayOnChart()
+// {
+//     Add code to overlay the identified lines onto the chart
+// }
+
+//+------------------------------------------------------------------+
+//|                        Trading Functions                          |
+//+------------------------------------------------------------------+
+void DetermineEntryPoints(const double pivot, const double support, const double resistance)
+{
+    // Add code to determine entry points based on price reactions at the pivot, support, and resistance levels
+}
+
+double CalculateTakeProfit(const double entryPrice)
+{
+    // Calculate take profit level based on the entry price
+    return entryPrice + TP_LEVEL;
+}
+
+double CalculateStopLoss(const double entryPrice)
+{
+    // Calculate stop loss level based on the entry price
+    return entryPrice - SL_LEVEL;
+}
+
+//+------------------------------------------------------------------+
+//|                          Error Handling                           |
+//+------------------------------------------------------------------+
+// void HandleErrors()
+// {
+//     Add code to handle errors and exceptions
+// }
+
+//+------------------------------------------------------------------+
+//|                        Integration Functions                      |
+//+------------------------------------------------------------------+
+// void IntegrateWithExistingSystems()
+// {
+//     Add code to integrate with existing trading systems
+// }
+
+//+------------------------------------------------------------------+
+//|                         Main Program                              |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Call the custom indicator function to calculate pivot, support, and resistance levels
+    int levels = CustomIndicator(Period());
+
+    // Overlay the calculated lines onto the chart
+    OverlayOnChart();
+
+    // Determine entry points based on the calculated levels
+    DetermineEntryPoints(levels[0], levels[1], levels[2]);
+
+    // Calculate take profit and stop loss levels
+    double entryPrice = Bid;
+    double takeProfit = CalculateTakeProfit(entryPrice);
+    double stopLoss = CalculateStopLoss(entryPrice);
+
+    // Handle errors and exceptions
+    HandleErrors();
+
+    // Integrate with existing trading systems
+    IntegrateWithExistingSystems();
+}
